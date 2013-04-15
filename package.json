@@ -20,6 +20,6 @@
     "underscore": "*"
   },
   "devDependencies": {
-    "tape": "*"
+    "tape": "https://github.com/substack/tape/tarball/master"
   }
 }

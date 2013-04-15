@@ -32,35 +32,33 @@ _(DOOPMembers).forEach(function(member) {
 var c = new Backbone.Collection(members);
 
 tape("Check main Collection", function(t) {
+  t.plan(2);
   t.ok(c.filterWhere);
   t.equal(c.length, 6, "members.length");
-  t.end();
 });
 
 var planetExpress = c.filterWhere({ ship: planetExpressConfig.ship });
 
 tape("Create filter", function(t) {
+  t.plan(1);
   t.equal(planetExpress.length, 3, "planetExpress.length");
-
-  t.end();
 });
 
 tape("Add filterable item to main Collection", function(t) {
+  t.plan(2);
+
   c.add([
     _.extend({}, planetExpressConfig, { name: "Bender" })
   ]);
 
   t.equal(c.length, 7, "members.length");
   t.equal(planetExpress.length, 4, "planetExpress.length");
-
-  t.end();
 });
 
 tape("Remove filterable item from main Collection", function(t) {
+  t.plan(2);
   c.remove(c.at(0));
 
   t.equal(c.length, 6, "members.length");
   t.equal(planetExpress.length, 3, "planetExpress.length");
-
-  t.end();
 });
