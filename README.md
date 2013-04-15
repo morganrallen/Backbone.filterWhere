@@ -7,6 +7,7 @@ a new collection that is constantely synced to the original collection it was fi
 from.
 
 [![build status](https://secure.travis-ci.org/morganrallen/Backbone.filterWhere.png)](http://travis-ci.org/morganrallen/Backbone.filterWhere)
+[![browser support](https://ci.testling.com/morganrallen/Backbone.filterWhere.png)](https://ci.testling.com/morganrallen/Backbone.filterWhere)
 
 # Example
 
