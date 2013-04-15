@@ -6,7 +6,7 @@ Backbone.Collections#filterWhere acts like Backbone.Collections#where expect it 
 a new collection that is constantely synced to the original collection it was filtered
 from.
 
-[![build status](https://secure.travis-ci.org/morganrallen/Backbone.filterWhere)](http://travis-ci.org/morganrallen/Backbone.filterWhere)
+[![build status](https://secure.travis-ci.org/morganrallen/Backbone.filterWhere.png)](http://travis-ci.org/morganrallen/Backbone.filterWhere)
 
 # Example
 
