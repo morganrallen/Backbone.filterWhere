@@ -50,8 +50,6 @@ tape("Add filterable item to main Collection", function(t) {
     _.extend({}, planetExpressConfig, { name: "Bender" })
   ]);
 
-  console.log(c.length);
-
   t.equal(c.length, 7, "members.length");
   t.equal(planetExpress.length, 4, "planetExpress.length");
 
@@ -63,4 +61,6 @@ tape("Remove filterable item from main Collection", function(t) {
 
   t.equal(c.length, 6, "members.length");
   t.equal(planetExpress.length, 3, "planetExpress.length");
+
+  t.end();
 });
