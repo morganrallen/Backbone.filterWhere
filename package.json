@@ -1,0 +1,25 @@
+{
+  "name": "Backbone.FilterBy",
+  "version": "0.0.1",
+  "author": "Morgan 'ARR!' Allen <morganrallen@gmail.com>",
+  "description": "Creates sub-scollection filtered by .where",
+  "contributors": [ 
+    {
+      "name": "Morgan 'ARR!' Allen",
+      "email": "morganrallen@gmail.com"
+    } 
+  ],
+  "scripts": {
+    "test": "node test.js --spec"
+  },
+
+  "keywords": [],
+
+  "dependencies": {
+    "backbone": ">=1.0",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "tape": "*"
+  }
+}
