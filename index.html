@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="node_modules/underscore/underscore.js" type="text/javascript"></script>
+    <script src="node_modules/backbone/backbone.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+    <script src="test.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <h1>Backbone.filterWhere</h1>
+
+    <p>Backbone.filterWhere adds a new method to Backbone.Collections.</p>
+
+    <p>Backbone.Collections#filterWhere acts like Backbone.Collections#where expect it returns
+    a new collection that is constantely synced to the original collection it was filtered
+    from.</p>
+
+    <p>[<img alt="build status" src="https://secure.travis-ci.org/morganrallen/Backbone.filterWhere.png)](http://travis-ci.org/morganrallen/Backbone.filterWhere"/>
+    [<img alt="browser support" src="https://ci.testling.com/morganrallen/Backbone.filterWhere.png)](https://ci.testling.com/morganrallen/Backbone.filterWhere"/></p>
+
+    <h1>Example</h1>
+
+    <p><code>
+    var things = new Backbone.Collection([{
+      name: &quot;Fry&quot;,
+      species: &quot;Human&quot;
+    }, {
+      name: &quot;Bender&quot;,
+      species: &quot;Robot&quot;
+    }, {
+      name: &quot;Clamps&quot;,
+      species: &quot;Robot&quot;
+    }]);</p>
+
+    <p>var humans = things.filterWhere({species: &quot;Human&quot;});
+    var robots = things.filterWhere({species: &quot;Robot&quot;});</p>
+
+    <p>console.log(&quot;Current humans: &quot; + humans.length);
+    console.log(&quot;Current robots: &quot; + robots.length);</p>
+
+    <p>things.add([ { name: &quot;Lela&quot;, species: &quot;Human&quot; } ]);</p>
+
+    <p>console.log(&quot;Current humans: &quot; + humans.length);
+    console.log(&quot;Current robots: &quot; + robots.length);
+    </code>
+      </p>
+  </body>
+</html>
