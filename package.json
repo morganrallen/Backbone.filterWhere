@@ -1,5 +1,5 @@
 {
-  "name": "Backbone.filterWhere",
+  "name": "backbone.filterwhere",
   "version": "0.0.1",
   "author": "Morgan 'ARR!' Allen <morganrallen@gmail.com>",
   "description": "Creates sub-scollection filtered by .where",
@@ -21,8 +21,8 @@
     "files": "test.js",
     "browsers": [
       "ie/6..latest",
-      "chrome/20..latest",
-      "firefox/10..latest",
+      "chrome/26..latest",
+      "firefox/20..latest",
       "safari/latest",
       "opera/11.0..latest",
       "iphone/6",
