@@ -72,7 +72,8 @@ tape("Add item to filtered Collection", function(t) {
   t.plan(2);
 
   planetExpress.add({
-    name: "Bubblegum Tate"
+    name: "Bubblegum Tate",
+    ship: "Basket Ball Ship"
   });
 
   t.equal(c.length, 7, "members.length");
