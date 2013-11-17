@@ -44,6 +44,11 @@ tape("Create filter", function(t) {
   t.equal(planetExpress.length, 3, "planetExpress.length");
 });
 
+tape("Same models exist in both collections", function(t) {
+  t.plan(1);
+  t.equal(planetExpress.models[0].cid, c.models[0].cid);
+});
+
 tape("Add filterable item to main Collection", function(t) {
   t.plan(2);
 
@@ -58,6 +63,25 @@ tape("Add filterable item to main Collection", function(t) {
 tape("Remove filterable item from main Collection", function(t) {
   t.plan(2);
   c.remove(c.at(0));
+
+  t.equal(c.length, 6, "members.length");
+  t.equal(planetExpress.length, 3, "planetExpress.length");
+});
+
+tape("Add item to filtered Collection", function(t) {
+  t.plan(2);
+
+  planetExpress.add({
+    name: "Bubblegum Tate"
+  });
+
+  t.equal(c.length, 7, "members.length");
+  t.equal(planetExpress.length, 4, "planetExpress.length");
+});
+
+tape("Remove from main Collection via filtered", function(t) {
+  t.plan(2);
+  planetExpress.remove(planetExpress.at(0));
 
   t.equal(c.length, 6, "members.length");
   t.equal(planetExpress.length, 3, "planetExpress.length");

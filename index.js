@@ -14,11 +14,20 @@
       this.on("add", _.bind(this._onParentAdd, c));
       this.on("remove", _.bind(this._onParentRemove, c));
 
+      c.on("add", _.bind(this._onAdd, this));
+      c.on("remove", _.bind(this._onParentRemove, this));
+
       return c;
     },
 
+    _onAdd: function(model, collection, options) {
+      this.add(model, options);
+    },
+
     _onParentAdd: function(model, collection, options) {
-      this.add(_.where([model.attributes], this._filter), options);
+      if(_.where([model.attributes], this._filter)) {
+        this.add(model, options);
+      }
     },
 
     _onParentRemove: function(model, collection, options) {
@@ -28,5 +37,5 @@
 
   if(typeof module !== "undefined") {
     module.exports = Backbone;
-  };
+  }
 }).call(this);
