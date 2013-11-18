@@ -14,10 +14,11 @@ var planetExpressConfig = {
 var planetExpressMembers = [ "Fry", "Lela", "Zoidberg" ];
 
 var DOOPConfig = {
-  location: "New New Jersey"
+  location: "New New Jersey",
+  ship: "Nimbus"
 };
 
-var DOOPMembers = [ "Zaap", "Kif", "Hugh Man" ];
+var DOOPMembers = [ "Zaap", "Kif" ];
 
 var members = [];
 
@@ -33,15 +34,17 @@ var c = new Backbone.Collection(members);
 
 tape("Check main Collection", function(t) {
   t.plan(2);
-  t.ok(c.filterWhere);
-  t.equal(c.length, 6, "members.length");
+  t.ok(c.filterWhere, "filterWhere function exists");
+  t.equal(c.length, 5, "members.length");
 });
 
 var planetExpress = c.filterWhere({ ship: planetExpressConfig.ship });
+var nimbus = c.filterWhere({ ship: DOOPConfig.ship });
 
 tape("Create filter", function(t) {
-  t.plan(1);
+  t.plan(2);
   t.equal(planetExpress.length, 3, "planetExpress.length");
+  t.equal(nimbus.length, 2, "planetExpress.length");
 });
 
 tape("Same models exist in both collections", function(t) {
@@ -50,22 +53,25 @@ tape("Same models exist in both collections", function(t) {
 });
 
 tape("Add filterable item to main Collection", function(t) {
-  t.plan(2);
+  t.plan(3);
 
-  c.add([
+  c.add(
     _.extend({}, planetExpressConfig, { name: "Bender" })
-  ]);
+  );
 
-  t.equal(c.length, 7, "members.length");
+  t.equal(c.length, 6, "members.length");
   t.equal(planetExpress.length, 4, "planetExpress.length");
+  t.equal(nimbus.length, 2, "nimbus.length");
 });
 
 tape("Remove filterable item from main Collection", function(t) {
-  t.plan(2);
+  t.plan(4);
   c.remove(c.at(0));
 
-  t.equal(c.length, 6, "members.length");
+  t.equal(c.length, 5, "members.length");
   t.equal(planetExpress.length, 3, "planetExpress.length");
+  t.equal(planetExpress.length, 3, "planetExpress.length");
+  t.equal(nimbus.length, 2, "nimbus.length");
 });
 
 tape("Add item to filtered Collection", function(t) {
@@ -76,7 +82,7 @@ tape("Add item to filtered Collection", function(t) {
     ship: "Basket Ball Ship"
   });
 
-  t.equal(c.length, 7, "members.length");
+  t.equal(c.length, 6, "members.length");
   t.equal(planetExpress.length, 4, "planetExpress.length");
 });
 
@@ -84,6 +90,6 @@ tape("Remove from main Collection via filtered", function(t) {
   t.plan(2);
   planetExpress.remove(planetExpress.at(0));
 
-  t.equal(c.length, 6, "members.length");
+  t.equal(c.length, 5, "members.length");
   t.equal(planetExpress.length, 3, "planetExpress.length");
 });

@@ -25,7 +25,7 @@
     },
 
     _onParentAdd: function(model, collection, options) {
-      if(_.where([model.attributes], this._filter)) {
+      if(_.where([model.attributes], this._filter).length > 0) {
         this.add(model, options);
       }
     },
